@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    {{ value }}
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { defineComponent, ref } from "vue";
+// import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
+// Using Composition API instead of Options API.
 export default defineComponent({
   name: "HomeView",
-  components: {
-    HelloWorld,
+  components: {},
+  props: {},
+  setup: (props) => {
+    const value = ref<string>("test is here");
+
+    // const isAdmin = computed(() => store.getters.isAdmin);
+
+    // watch(
+    //   () => props.letter,
+    //   async () => {
+    //     await getPeople();
+    //   }
+    // );
+
+    return {
+      value,
+    };
   },
 });
 </script>
